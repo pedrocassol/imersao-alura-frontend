@@ -1,0 +1,201 @@
+/* Reset CSS - Remove margens e paddings padrão de todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Inclui padding e border na largura/altura total */
+}
+
+/* Variáveis de tema - Dark mode (padrão) */
+:root[data-theme="dark"] {
+    --bg-color: #141414;
+    --text-color: #ffffff;
+    --accent-color: #e50914;
+    --secondary-text: #808080;
+}
+
+/* Variáveis de tema - Light mode */
+:root[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #141414;
+    --accent-color: #e50914;
+    --secondary-text: #4a4a4a;
+}
+
+/* Estilos do corpo da página - Usa variáveis de tema */
+body {
+    background-color: var(--bg-color); /* Cor de fundo dinâmica */
+    color: var(--text-color); /* Texto dinâmico */
+    font-family: 'Arial', 'Helvetica', sans-serif; /* Família de fonte limpa */
+    font-size: 16px; /* Tamanho base da fonte */
+    line-height: 1.6; /* Altura da linha para melhor legibilidade */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave entre temas */
+}
+
+/* Container principal - Centraliza o conteúdo na tela */
+main {
+    min-height: 100vh; /* Altura mínima de 100% da viewport */
+    display: flex; /* Usa flexbox para centralizar */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    padding: 40px 20px; /* Espaçamento interno */
+}
+
+/* Seção do conteúdo - Limita largura máxima e centraliza texto */
+section {
+    max-width: 1000px; /* Largura máxima da seção */
+    width: 100%; /* Largura total disponível */
+    text-align: center; /* Alinha texto ao centro */
+}
+
+/* Título principal - Estilo grande e impactante */
+h1 {
+    font-size: 3.5rem; /* Tamanho grande da fonte */
+    margin-bottom: 60px; /* Margem inferior */
+    letter-spacing: -2px; /* Espaçamento entre letras reduzido */
+    text-transform: none; /* Sem transformação de texto */
+}
+
+/* Container dos perfis - Layout flexível em linha */
+.profiles {
+    display: flex; /* Usa flexbox para layout */
+    gap: 40px; /* Espaçamento entre itens */
+    justify-content: center; /* Centraliza os itens */
+    flex-wrap: wrap; /* Permite quebra de linha se necessário */
+}
+
+/* Estilo individual de cada perfil - Cursor de clique e transições */
+.profile {
+    list-style: none; /* Remove marcador de lista */
+    cursor: pointer; /* Cursor de mão ao passar o mouse */
+    transition: all 0.3s ease; /* Transição suave para todas as propriedades */
+    max-width: 200px; /* Largura máxima do perfil */
+}
+
+/* Remove marcador dos itens da lista de perfis */
+.profiles li {
+    list-style: none; /* Remove o ponto da lista */
+}
+
+/* Botão de alternância de tema */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Efeito hover no botão */
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.5);
+}
+
+/* Efeito hover no perfil - Aumenta ligeiramente o tamanho */
+.profile:hover {
+    transform: scale(1.05); /* Aumenta 5% o tamanho */
+}
+
+/* Efeito hover na legenda - Muda cor para vermelho Netflix */
+.profile:hover figcaption {
+    color: var(--accent-color); /* Cor vermelha característica da Netflix */
+}
+
+/* Container da imagem e legenda - Layout vertical */
+figure {
+    margin: 0; /* Remove margem padrão */
+    display: flex; /* Usa flexbox */
+    flex-direction: column; /* Direção vertical */
+    gap: 20px; /* Espaçamento entre imagem e legenda */
+}
+
+/* Estilo das imagens dos perfis - Tamanho fixo e bordas arredondadas */
+.profile img {
+    width: 200px; /* Largura fixa */
+    height: 200px; /* Altura fixa */
+    object-fit: cover; /* Cobre toda a área sem distorcer */
+    border-radius: 8px; /* Bordas arredondadas */
+    border: 2px solid transparent; /* Borda transparente inicialmente */
+    transition: border-color 0.3s ease; /* Transição suave na cor da borda */
+}
+
+/* Efeito hover na imagem - Borda vermelha */
+.profile:hover img {
+    border-color: var(--accent-color); /* Borda vermelha no hover */
+}
+
+/* Estilo da legenda dos perfis - Texto cinza e transição */
+figcaption {
+    font-size: 1.3rem; /* Tamanho da fonte */
+    font-weight: 500; /* Peso médio da fonte */
+    color: var(--secondary-text); /* Cor cinza dinâmica */
+    transition: color 0.3s ease; /* Transição suave na cor */
+}
+
+/* Media Query para tablets - Ajusta tamanhos para telas menores */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem; /* Tamanho menor do título */
+        margin-bottom: 40px; /* Margem inferior reduzida */
+    }
+
+    .profiles {
+        gap: 30px; /* Espaçamento menor entre perfis */
+    }
+
+    .profile {
+        max-width: 150px; /* Largura máxima reduzida */
+    }
+
+    .profile img {
+        width: 150px; /* Largura da imagem reduzida */
+        height: 150px; /* Altura da imagem reduzida */
+    }
+
+    figcaption {
+        font-size: 1.1rem; /* Tamanho menor da fonte da legenda */
+    }
+}
+
+/* Media Query para celulares - Layout vertical e tamanhos ainda menores */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem; /* Tamanho ainda menor do título */
+        margin-bottom: 30px; /* Margem ainda menor */
+    }
+
+    .profiles {
+        gap: 20px; /* Espaçamento mínimo */
+        flex-direction: column; /* Muda para layout vertical */
+        align-items: center; /* Centraliza os itens */
+    }
+
+    .profile {
+        max-width: 120px; /* Largura máxima pequena */
+    }
+
+    .profile img {
+        width: 120px; /* Largura pequena da imagem */
+        height: 120px; /* Altura pequena da imagem */
+    }
+
+    figcaption {
+        font-size: 1rem; /* Tamanho mínimo da fonte */
+    }
+
+    .theme-toggle {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        top: 10px;
+        right: 10px;
+    }
+}
