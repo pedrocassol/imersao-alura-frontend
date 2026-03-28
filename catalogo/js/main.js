@@ -1,6 +1,3 @@
-import { categories } from './data.js';
-import { createCarousel } from './components/Carousel.js';
-
 document.addEventListener('DOMContentLoaded', () => {
     const nomePerfil = localStorage.getItem('perfilAtivoNome');
     const imagemPerfil = localStorage.getItem('perfilAtivoImagem');
@@ -10,7 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const profileIcon = document.querySelector('.profile-icon');
         
         if (kidsLink) kidsLink.textContent = nomePerfil;
-        if (profileIcon) profileIcon.src = imagemPerfil;
+        
+        if (profileIcon && imagemPerfil) {
+            profileIcon.src = "../" + imagemPerfil; // 🔥 CORREÇÃO
+        }
     }
 
     const container = document.getElementById('main-content');
