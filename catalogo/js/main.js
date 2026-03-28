@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (kidsLink) kidsLink.textContent = nomePerfil;
         
         if (profileIcon && imagemPerfil) {
-            profileIcon.src = "../" + imagemPerfil; // 🔥 CORREÇÃO
+            profileIcon.src = "../" + imagemPerfil; 
         }
     }
 
